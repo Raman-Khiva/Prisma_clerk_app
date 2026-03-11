@@ -17,7 +17,9 @@ export const syncUser = async (req, res) => {
     );
     if (!user) {
       user = await prisma.user.create({
-        clerkId: clerkId,
+        data: {
+          clerkId: clerkId,
+        },
       });
       logger.info(`User with clerkId ${clerkId} created successfully`);
     }

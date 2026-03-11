@@ -20,8 +20,9 @@ app.get("/api/health", (req, res) => {
 });
 
 app.use("/api/user", clerkAuth, userRouter);
+const port = process.env.PORT || 4000;
 
 app.listen(5000, "0.0.0.0", () => {
-  console.log("server is running on port 5000");
+  console.log("server is running on port ", port);
   console.info("DATABASE_URL", process.env.DATABASE_URL);
 });
